@@ -1,1 +1,62 @@
-@import url('https://fonts.googleapis.com/css2?family=Chango&display=swap')
+@import url('https://fonts.googleapis.com/css2?family=Acme&display=swap');
+
+body {
+    font-family: 'Acme', sans-serif;
+    background-color: #1c273a;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    /* height: 100vh; */
+    color: #f7f7f7;
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    justify-items: center;
+}
+
+
+h1 {
+    font-size: 5rem;
+}
+
+h2 {
+    color: #f75431;
+    font-size: 5rem;
+}
+
+label {
+    color: #c10037;
+    font-size: 1.25rem;
+}
+
+h4, h6 {
+    font-size: 2rem;
+    margin: 8px;
+}
+
+
+input, .button, label {
+    padding: 8px;
+    font-weight: 600;
+    font-size: 20px;
+    margin-bottom: 8px;
+    border-radius: 9px;
+    border: none;
+}
+
+.button {
+    background: #0c172b;
+    color: #8bb8f1;
+    padding: 8px;
+}
