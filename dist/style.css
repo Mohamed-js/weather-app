@@ -1,4 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Acme&display=swap');
+* {
+    animation: appear 1s forwards;
+}
 
 body {
     font-family: 'Acme', sans-serif;
@@ -7,7 +10,6 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    /* height: 100vh; */
     color: #f7f7f7;
 }
 
@@ -36,7 +38,7 @@ h2 {
 }
 
 label {
-    color: #c10037;
+    color: #8bb8f1;
     font-size: 1.25rem;
 }
 
@@ -59,4 +61,29 @@ input, .button, label {
     background: #0c172b;
     color: #8bb8f1;
     padding: 8px;
+}
+
+@keyframes appear {
+    from {
+        opacity: 0;
+        transform: translateY(15px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@media screen and (max-width: 400px){
+    .container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    h1, h2 {
+        margin: 10px;
+    }
 }

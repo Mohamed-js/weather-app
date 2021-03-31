@@ -12,7 +12,7 @@ load.src = './imgs/load.gif';
 components.appendAll(content, head, label, input, btn, container)
 
 btn.onclick = async () => {
-    
+
     // Empty container and make loading icon
     container.innerHTML = ''
     container.appendChild(load)
@@ -28,8 +28,8 @@ btn.onclick = async () => {
 
     // Append weather info
     components.appendAll(container, components.text('h2', weather.country, 'c-name'), img)
-    components.appendAll(container, components.text('label', 'Max-Temp', 'c-max'), components.text('h4', weather.maxTemp + '°', 'c-max'))
-    components.appendAll(container, components.text('label', 'Min-Temp', 'c-min'), components.text('h4', weather.minTemp + '°', 'c-min'))
+    components.appendAll(container, components.text('label', 'Max-Temp', 'c-max'), components.text('h4', weather.maxTemp + ' °C', 'c-max'))
+    components.appendAll(container, components.text('label', 'Min-Temp', 'c-min'), components.text('h4', weather.minTemp + ' °C', 'c-min'))
     components.appendAll(container, components.text('label', 'Wind Speed', 'c-speed'), components.text('h6', weather.windSpeed, 'c-speed'))
-    components.appendAll(container, components.text('label', 'Wind Direction', 'c-direction'), components.text('h6', weather.windDirection + 'deg', 'c-direction'))
+    components.appendAll(container, components.text('label', 'Wind Direction', 'c-direction'), components.text('h6', weather.windDirection + ' deg', 'c-direction'))
 }
