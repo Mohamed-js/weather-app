@@ -37,7 +37,7 @@ btn.onclick = async () => {
         components.appendAll(container, components.text('label', 'Min-Temp', 'c-min'), components.text('h4', weather.minTemp + ' °C', 'c-min'))
         components.appendAll(container, components.text('label', 'Wind Speed', 'c-speed'), components.text('h6', weather.windSpeed, 'c-speed'))
         components.appendAll(container, components.text('label', 'Wind Direction', 'c-direction'), components.text('h6', weather.windDirection + ' deg', 'c-direction'))
-    } else {
+    } else if (weather.country === undefined) {
         setTimeout(() => {
             loadContainer.innerHTML = ''
             components.appendAll(loadContainer, components.text('h3', `Sorry, we couldn't identify the name.`, 'err1'), components.text('h3', `Please check the name and re-try.`, 'err2'))
