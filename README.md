@@ -13,12 +13,12 @@ In this project:
 
 ## Live Demo
 
-[LIVE!](https://mohamed-js.github.io/RESTAURANT/)
+[LIVE!](https://mohamed-js.github.io/weather-app/)
 
 
 ## Usage
 
-- Clone the repo "https://github.com/Mohamed-js/restaurant.git".
+- Clone the repo "https://github.com/Mohamed-js/weather-app.git"
 - run "npm install"
 
 
