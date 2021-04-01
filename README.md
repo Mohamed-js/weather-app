@@ -49,5 +49,6 @@ Give a ⭐️ if you like this project!
 
 ### Acknowledgements
 
+- OpenWeatherMap API
 - Microverse
 - The Odin Project
