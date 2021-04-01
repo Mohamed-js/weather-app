@@ -23,20 +23,20 @@ btn.onclick = async () => {
     let country = input.value
     let weather = await components.getData(country);
 
+    // Empty container from loading and get img src
+    
+    let img = components.text('img', '', 'c-img') ;
+    img.src = `http://openweathermap.org/img/wn/${weather.icon}@4x.png`;
+
     // Handle error
-    if (await weather.country === undefined) {
+    if (weather.country === undefined) {
         setTimeout(() => {
             loadContainer.innerHTML = ''
             components.appendAll(loadContainer, components.text('h3', `Sorry, we couldn't identify the name.`, 'err1'), components.text('h3', `Please check the name and re-try.`, 'err2'))
         }, 2000);
         return
     }
-
-    // Empty container from loading and get img src
     loadContainer.innerHTML = ''
-    let img = components.text('img', '', 'c-img') ;
-    img.src = `http://openweathermap.org/img/wn/${weather.icon}@4x.png`;
-
     // Append weather info
     components.appendAll(container, components.text('h2', weather.country, 'c-name'), img)
     components.appendAll(container, components.text('label', 'Max-Temp', 'c-max'), components.text('h4', weather.maxTemp + ' °C', 'c-max'))
