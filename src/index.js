@@ -26,7 +26,7 @@ btn.onclick = async () => {
     // Empty container from loading and get img src
     
     let img = components.text('img', '', 'c-img') ;
-    img.src = `http://openweathermap.org/img/wn/${weather.icon}@4x.png`;
+    img.src = `https://openweathermap.org/img/wn/${weather.icon}@4x.png`;
 
     if (weather.country === undefined ) {
         // Handle error
