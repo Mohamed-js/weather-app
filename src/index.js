@@ -24,7 +24,7 @@ btn.onclick = async () => {
     let weather = await components.getData(country);
 
     // Handle error
-    if (weather.country === undefined) {
+    if (await weather.country === undefined) {
         setTimeout(() => {
             loadContainer.innerHTML = ''
             components.appendAll(loadContainer, components.text('h3', `Sorry, we couldn't identify the name.`, 'err1'), components.text('h3', `Please check the name and re-try.`, 'err2'))
