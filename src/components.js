@@ -5,10 +5,10 @@ const text = (elem, text, className) => {
     return t;
 };
 
-const getData = async(place) => {
+const getData = async(place, unit) => {
     let weather={};
     
-    await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${place}&lang=en&units=metric&appid=96234945f21abe7a841c8fc0306c59be`)
+    await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${place}&lang=en&units=${unit}&appid=96234945f21abe7a841c8fc0306c59be`)
         .then(function(response) { 
             return response.json()
         })
