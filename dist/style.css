@@ -63,6 +63,10 @@ input, .button, label {
     padding: 8px;
 }
 
+input {
+    background-color: honeydew;
+}
+
 @keyframes appear {
     from {
         opacity: 0;
@@ -86,4 +90,10 @@ input, .button, label {
     h1, h2 {
         margin: 10px;
     }
+}
+
+.err1, .err2 {
+    font-size: 2rem;
+    color: crimson;
+    text-align: center;
 }

@@ -6,23 +6,34 @@ const label = components.text('label', 'Enter country name:', 'label')
 const input = components.text('input', '', 'input')
 const btn = components.text('a', 'Get Weather', 'button')
 const container = components.text('div', '', 'container')
+const loadContainer = components.text('div', '', 'load-contianer');
 const load = components.text('img', '', 'c-img');
 load.src = './imgs/load.gif';
 
-components.appendAll(content, head, label, input, btn, container)
+components.appendAll(content, head, label, input, btn, loadContainer, container)
 
 btn.onclick = async () => {
 
     // Empty container and make loading icon
     container.innerHTML = ''
-    container.appendChild(load)
+    loadContainer.innerHTML = ''
+    loadContainer.appendChild(load)
 
     // Get and store the data 
     let country = input.value
     let weather = await components.getData(country);
 
+    // Handle error
+    if (weather.country === undefined) {
+        setTimeout(() => {
+            loadContainer.innerHTML = ''
+            components.appendAll(loadContainer, components.text('h3', `Sorry, we couldn't identify the name.`, 'err1'), components.text('h3', `Please check the name and re-try.`, 'err2'))
+        }, 2000);
+        return
+    }
+
     // Empty container from loading and get img src
-    container.innerHTML = ''
+    loadContainer.innerHTML = ''
     let img = components.text('img', '', 'c-img') ;
     img.src = `http://openweathermap.org/img/wn/${weather.icon}@4x.png`;
 
