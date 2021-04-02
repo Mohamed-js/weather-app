@@ -24,13 +24,13 @@ load.src = "./imgs/load.gif";
 components.appendAll(
   content,
   head,
+  label,
+  input,
+  btn,
   select1,
   label1,
   select2,
   label2,
-  label,
-  input,
-  btn,
   loadContainer,
   container
 );
@@ -69,8 +69,7 @@ btn.onclick = async () => {
     loadContainer.innerHTML = "";
     components.appendAll(
       loadContainer,
-      components.text("h3", `Sorry, we couldn't identify the name.`, "err1"),
-      components.text("h3", `Please check the name and re-try.`, "err2")
+      components.text("h3", `Sorry, please enter a valid name.`, "err1")
     );
   } else {
     loadContainer.innerHTML = "";
@@ -102,3 +101,75 @@ btn.onclick = async () => {
     );
   }
 };
+
+const selects = document.getElementsByName("unit");
+for (var i = 0; i < selects.length; i++) {
+  selects[i].onclick = async () => {
+    // Get the Unit
+    let unit;
+    const select = document.getElementsByName("unit");
+    for (var i = 0; i < select.length; i++) {
+      if (select[i].checked) {
+        unit = select[i].value;
+        break;
+      }
+    }
+  
+    // Empty container and make loading icon
+    container.innerHTML = "";
+    loadContainer.innerHTML = "";
+    loadContainer.appendChild(load);
+  
+    // Get and store the data
+    let country = input.value;
+    let weather = await components.getData(country, unit);
+  
+    // Empty container from loading and get img src
+    if (unit === "metric") {
+      unit = "°C";
+    } else {
+      unit = "°F";
+    }
+    let img = components.text("img", "", "c-img");
+    img.src = `https://openweathermap.org/img/wn/${weather.icon}@4x.png`;
+  
+    if (weather.country === undefined) {
+      // Handle error
+      loadContainer.innerHTML = "";
+      components.appendAll(
+        loadContainer,
+        components.text("h3", `Sorry, please enter a valid name.`, "err1")
+        
+      );
+    } else {
+      loadContainer.innerHTML = "";
+      // Append weather info
+      components.appendAll(
+        container,
+        components.text("h2", weather.country, "c-name"),
+        img
+      );
+      components.appendAll(
+        container,
+        components.text("label", "Max-Temp", "c-max"),
+        components.text("h4", weather.maxTemp + ` ${unit}`, "c-max")
+      );
+      components.appendAll(
+        container,
+        components.text("label", "Min-Temp", "c-min"),
+        components.text("h4", weather.minTemp + ` ${unit}`, "c-min")
+      );
+      components.appendAll(
+        container,
+        components.text("label", "Wind Speed", "c-speed"),
+        components.text("h6", weather.windSpeed, "c-speed")
+      );
+      components.appendAll(
+        container,
+        components.text("label", "Wind Direction", "c-direction"),
+        components.text("h6", weather.windDirection + " deg", "c-direction")
+      );
+    }
+  };
+}
+

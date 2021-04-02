@@ -34,4 +34,4 @@ function appendAll() {
     }
 }
 
-export { text, getData, appendAll };   
+export { text, getData, appendAll };
